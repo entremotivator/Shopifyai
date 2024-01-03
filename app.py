@@ -2,10 +2,13 @@ import streamlit as st
 import requests
 import json
 
-# Shopify store credentials
-shop_url = 'your-shop.myshopify.com'
-api_key = 'your-api-key'
-api_password = 'your-api-password'
+# Feature 0: User Input for Shopify Store Information
+st.title("Shopify Store Dashboard Configuration")
+st.header("Enter Your Shopify Store Information")
+
+shop_url = st.text_input("Shopify Store URL", "your-shop.myshopify.com")
+api_key = st.text_input("Shopify API Key", "your-api-key")
+api_password = st.text_input("Shopify API Password", "your-api-password", type="password")
 
 # Shopify API base URL
 api_base_url = f'https://{shop_url}/admin/api/2022-01'
@@ -116,5 +119,18 @@ if search_customer_button and search_customer_email:
         st.write(f"Customer: {search_result[0]['first_name']} {search_result[0]['last_name']} - Email: {search_result[0]['email']}")
     else:
         st.warning(f"No customer found with email {search_customer_email}")
+
+# Feature 8: Additional Buttons
+st.header("Additional Buttons")
+
+button_actions = [
+    {"label": "Button 1", "action": "Action 1"},
+    {"label": "Button 2", "action": "Action 2"},
+    # Add more buttons and actions as needed
+]
+
+for button_info in button_actions:
+    if st.button(button_info["label"]):
+        st.info(f"Performing action: {button_info['action']}")
 
 # Add more features based on your specific needs...
