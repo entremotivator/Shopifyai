@@ -124,13 +124,13 @@ if search_customer_button and search_customer_email:
 st.header("Additional Buttons")
 
 button_actions = [
-    {"label": "Button 1", "action": "Action 1"},
-    {"label": "Button 2", "action": "Action 2"},
+    {"label": "Button 1", "action": "Perform Action 1"},
+    {"label": "Button 2", "action": "Perform Action 2"},
     # Add more buttons and actions as needed
 ]
 
 for button_info in button_actions:
     if st.button(button_info["label"]):
-        st.info(f"Performing action: {button_info['action']}")
+        st.info(f"{button_info['action']}")
 
 # Add more features based on your specific needs...
